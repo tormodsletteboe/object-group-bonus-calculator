@@ -22,7 +22,7 @@ const employees = [
     name: 'Robert',
     employeeNumber: '26835',
     annualSalary: '66000',
-    reviewRating: 5
+    reviewRating: 1
   },
   {
     name: 'Mayella',
