@@ -4,7 +4,7 @@ const employees = [
     name: 'Atticus',
     employeeNumber: '2405',
     annualSalary: '47000',
-    reviewRating: 3
+    reviewRating: 2
   },
   {
     name: 'Jem',
@@ -50,8 +50,48 @@ console.log('array of employee data: ',  employees );
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  
-  
+  let bonus =0;
+  let bonusResults ={
+    name: employee.name,
+    bonusPercentage: 1,
+    totalCompensation: 1,
+    totalBonus: 1
+  };
+if (employee.reviewRating === 2) {
+  bonusResults.totalBonus = employee.annualSalary * 0;
+  bonusResults.bonusPercentage = 0;
+
+} else if( employee.reviewRating ===3){
+  bonusResults.totalBonus = employee.annualSalary * .04;
+  bonusResults.bonusPercentage = .04;
+
+} else if (employee.reviewRating ===4){
+  bonusResults.totalBonus = employee.annualSalary * .06;
+  bonusResults.bonusPercentage = .06;
+
+} else if (employee.reviewRating === 5){
+  bonusResults.totalBonus = employee.annualSalary * .10;
+  bonusResults.bonusPercentage = .10;
+}
+
+ bonusResults.bonusValue= bonus;
+ let bonusWithSalary = bonus + parseInt(employee.annualSalary);
+ console.log(bonusWithSalary);
+ 
+if (employee.employeeNumber.length > 4){
+  bonus = bonusWithSalary * .05; 
+  bonusWithSalary += bonus;
+  console.log(bonusWithSalary);
+
+}if (bonusWithSalary> 65000){
+  bonus = bonus - (bonus * .01);
+  console.log(bonus); 
+}
+bonusResults.bonusValue = bonus;
+
+ return bonusResults;
   // return new object with bonus results
 
 }
+//calculateIndividualEmployeeBonus(employees[0]);
+console.log(calculateIndividualEmployeeBonus(employees[0]));
