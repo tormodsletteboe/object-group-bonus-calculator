@@ -4,7 +4,7 @@ const employees = [
     name: 'Atticus',
     employeeNumber: '2405',
     annualSalary: '47000',
-    reviewRating: 2
+    reviewRating: 3
   },
   {
     name: 'Jem',
@@ -53,9 +53,9 @@ function calculateIndividualEmployeeBonus( employee ) {
  
   let bonusResults ={
     name: employee.name,
-    bonusPercentage: 1,
-    totalCompensation: 1,
-    totalBonus: 1
+    bonusPercentage: 0,
+    totalCompensation: employee.annualSalary,
+    totalBonus: 0
   };
 if (employee.reviewRating === 2) {
   bonusResults.totalBonus = employee.annualSalary * 0;
@@ -77,21 +77,37 @@ if (employee.reviewRating === 2) {
 
  bonusResults.totalCompensation = bonusResults.totalBonus + parseInt(employee.annualSalary);
  console.log(bonusResults.totalCompensation);
+ console.log(bonusResults.totalBonus);
+ console.log(bonusResults.bonusPercentage);
 
-// if (employee.employeeNumber.length > 4){
-//   bonus = bonusWithSalary * .05; 
-//   bonusWithSalary += bonus;
-//   console.log(bonusWithSalary);
 
-// }if (bonusWithSalary> 65000){
-//   bonus = bonus - (bonus * .01);
-//   console.log(bonus); 
-// }
-// bonusResults.bonusValue = bonus;
+if (employee.employeeNumber.length > 4){
+  console.log('Hello');
+  bonusResults.totalBonus = bonusResults.totalCompensation * .05; 
+  bonusResults.totalCompensation += bonusResults.totalBonus;
+  bonusResults.bonusPercentage += .05;
+
+  console.log(bonusResults.bonusPercentage);
+  console.log(bonusResults.totalCompensation);
+}
+if (bonusResults.totalCompensation > 65000){
+  bonusResults.totalBonus = bonusResults.totalBonus - (bonusResults.totalBonus * .01);
+  bonusResults.bonusPercentage -= .01;
+  console.log(bonusResults.bonusPercentage);
+  console.log(bonusResults.totalBonus); 
+
+}
+if(bonusResults.bonusPercentage>.13){
+bonusResults.totalBonus = employee.annualSalary * .13;
+bonusResults.bonusPercentage = .13;
+bonusResults.totalCompensation = employee.annualSalary + bonusResults.totalBonus;
+
+}
+
 
  return bonusResults;
   // return new object with bonus results
 
 }
 //calculateIndividualEmployeeBonus(employees[0]);
-console.log(calculateIndividualEmployeeBonus(employees[0]));
+console.log(calculateIndividualEmployeeBonus(employees[3]));
