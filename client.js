@@ -76,25 +76,25 @@ if (employee.reviewRating === 2) {
 
 
  bonusResults.totalCompensation = bonusResults.totalBonus + parseInt(employee.annualSalary);
- console.log(bonusResults.totalCompensation);
- console.log(bonusResults.totalBonus);
- console.log(bonusResults.bonusPercentage);
+//  console.log(bonusResults.totalCompensation);
+//  console.log(bonusResults.totalBonus);
+//  console.log(bonusResults.bonusPercentage);
 
 
 if (employee.employeeNumber.length > 4){
-  console.log('Hello');
+  //console.log('Hello');
   bonusResults.totalBonus = bonusResults.totalCompensation * .05; 
   bonusResults.totalCompensation += bonusResults.totalBonus;
   bonusResults.bonusPercentage += .05;
 
-  console.log(bonusResults.bonusPercentage);
-  console.log(bonusResults.totalCompensation);
+  // console.log(bonusResults.bonusPercentage);
+  // console.log(bonusResults.totalCompensation);
 }
 if (bonusResults.totalCompensation > 65000){
   bonusResults.totalBonus = bonusResults.totalBonus - (bonusResults.totalBonus * .01);
   bonusResults.bonusPercentage -= .01;
-  console.log(bonusResults.bonusPercentage);
-  console.log(bonusResults.totalBonus); 
+  // console.log(bonusResults.bonusPercentage);
+  // console.log(bonusResults.totalBonus); 
 
 }
 if(bonusResults.bonusPercentage>.13){
@@ -110,4 +110,6 @@ bonusResults.totalCompensation = parseInt(employee.annualSalary) + bonusResults.
 
 }
 //calculateIndividualEmployeeBonus(employees[0]);
-console.log(calculateIndividualEmployeeBonus(employees[3]));
+for(let i =0; i<employees.length; i++){
+  console.log(calculateIndividualEmployeeBonus(employees[i]));
+}
