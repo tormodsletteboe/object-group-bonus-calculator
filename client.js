@@ -22,7 +22,7 @@ const employees = [
     name: 'Robert',
     employeeNumber: '26835',
     annualSalary: '66000',
-    reviewRating: 1
+    reviewRating: 5
   },
   {
     name: 'Mayella',
@@ -100,7 +100,7 @@ if (bonusResults.totalCompensation > 65000){
 if(bonusResults.bonusPercentage>.13){
 bonusResults.totalBonus = employee.annualSalary * .13;
 bonusResults.bonusPercentage = .13;
-bonusResults.totalCompensation = employee.annualSalary + bonusResults.totalBonus;
+bonusResults.totalCompensation = parseInt(employee.annualSalary) + bonusResults.totalBonus;
 
 }
 
